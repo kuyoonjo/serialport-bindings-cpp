@@ -6,3 +6,5 @@ npm-debug.log
 prebuilds
 .tool-versions
 dist
+.smake
+.ninja_*

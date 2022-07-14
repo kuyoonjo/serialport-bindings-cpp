@@ -2,7 +2,8 @@ import nodeGypBuild from 'node-gyp-build'
 import { promisify } from 'util'
 import { join } from 'path'
 
-const binding = nodeGypBuild(join(__dirname, '../')) as any
+// const binding = nodeGypBuild(join(__dirname, '../')) as any
+const binding = require(`${__dirname}/../build/${process.platform}/${process.arch}/bindings.node`)
 
 export const asyncClose = binding.close ? promisify(binding.close) : async () => { throw new Error('"binding.close" Method not implemented')}
 export const asyncDrain = binding.drain ? promisify(binding.drain) : async () => { throw new Error('"binding.drain" Method not implemented')}

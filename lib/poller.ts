@@ -4,7 +4,8 @@ import { join } from 'path'
 import nodeGypBuild from 'node-gyp-build'
 import { BindingsError } from './errors'
 
-const { Poller: PollerBindings } = nodeGypBuild(join(__dirname, '../')) as any
+// const { Poller: PollerBindings } = nodeGypBuild(join(__dirname, '../')) as any
+const { Poller: PollerBindings } = require(`${__dirname}/../build/${process.platform}/${process.arch}/bindings.node`)
 const logger = debug('serialport/bindings-cpp/poller')
 
 export const EVENTS = {
